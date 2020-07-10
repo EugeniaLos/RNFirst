@@ -16,12 +16,14 @@ const items = [
     {key: 'Exercise'},
   ];
 
+const renderToDoItem = ({item}) => (<Text style={styles.highlight}>{item.key}</Text>)
+
 export const TodoItems = () => {
     return (
       <View style={styles.sectionContainer}>
         <FlatList
           data={items}
-          renderItem={({item}) => <Text style={styles.highlight}>{item.key}</Text>}
+          renderItem={renderToDoItem}
         />
       </View>
     );

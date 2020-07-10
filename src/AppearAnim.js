@@ -10,7 +10,7 @@ export const AppearAnim = (props) => {
     Animated.timing(
         appearAnim, {
         toValue: 1,
-        duration: 50000,
+        duration: 10000,
       }
     ).start()
 
