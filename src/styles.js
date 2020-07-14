@@ -24,4 +24,7 @@ export const styles = StyleSheet.create({
   highlight: {
     fontSize: 24,
   },
+  imageContainer: {
+    alignItems: 'center',
+  },
 });

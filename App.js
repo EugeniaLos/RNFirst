@@ -15,7 +15,7 @@ export const App: () => React$Node = () => {
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Заголовок</Text>
-              <AppearAnim style={{alignItems: 'center'}}>
+              <AppearAnim style={styles.imageContainer}>
                 <Image source={require('./image.png')} />
               </AppearAnim>
             </View>
