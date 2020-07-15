@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 import {
   Animated,
+  ViewPropTypes,
 } from 'react-native';
 
 export const AppearAnim = (props) => {
@@ -28,6 +29,9 @@ export const AppearAnim = (props) => {
 };
 
 AppearAnim.propTypes = {
-  style: PropTypes.object.isRequired,
-  children: PropTypes.object.isRequired,
+  style: ViewPropTypes.style.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };

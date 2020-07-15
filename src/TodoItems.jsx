@@ -30,5 +30,5 @@ export const TodoItems = () => (
 );
 
 renderToDoItem.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: PropTypes.objectOf(PropTypes.string).isRequired,
 };
