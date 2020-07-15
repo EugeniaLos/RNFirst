@@ -27,5 +27,6 @@ module.exports = {
     'simple-import-sort/sort': 'error',
     'no-inline-styles/no-inline-styles': 'error',
     'react/destructuring-assignment': 'off',
+    'import/prefer-default-export': 'off',
   },
 };

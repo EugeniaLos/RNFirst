@@ -1,9 +1,9 @@
+import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 import {
   Animated,
 } from 'react-native';
 
-// eslint-disable-next-line import/prefer-default-export
 export const AppearAnim = (props) => {
   const appearAnim = useRef(new Animated.Value(0)).current;
 
@@ -25,4 +25,9 @@ export const AppearAnim = (props) => {
       {props.children}
     </Animated.View>
   );
+};
+
+AppearAnim.propTypes = {
+  style: PropTypes.object.isRequired,
+  children: PropTypes.object.isRequired,
 };

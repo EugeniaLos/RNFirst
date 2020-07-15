@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   FlatList,
@@ -19,7 +20,6 @@ const items = [
 
 const renderToDoItem = ({ item }) => (<Text style={styles.highlight}>{item.key}</Text>);
 
-// eslint-disable-next-line import/prefer-default-export
 export const TodoItems = () => (
   <View style={styles.sectionContainer}>
     <FlatList
@@ -28,3 +28,7 @@ export const TodoItems = () => (
     />
   </View>
 );
+
+renderToDoItem.propTypes = {
+  item: PropTypes.object.isRequired,
+};
