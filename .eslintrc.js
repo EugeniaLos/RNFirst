@@ -28,5 +28,6 @@ module.exports = {
     'no-inline-styles/no-inline-styles': 'error',
     'react/destructuring-assignment': 'off',
     'import/prefer-default-export': 'off',
+    'global-require': 'off',
   },
 };
