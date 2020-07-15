@@ -5,9 +5,9 @@ import {
   Text,
   Image,
 } from 'react-native';
-import { AppearAnim } from './src/AppearAnim.js';
-import { TodoItems} from './src/TodoItems.js';
-import { styles } from './src/styles.js';
+import { AppearAnim } from './src/AppearAnim.jsx';
+import { TodoItems} from './src/TodoItems';
+import { styles } from './src/styles';
 
 export const App: () => React$Node = () => {
   return (

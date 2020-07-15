@@ -20,7 +20,12 @@ module.exports = {
   },
   plugins: [
     'react',
+    'simple-import-sort',
+    'eslint-plugin-no-inline-styles',
   ],
   rules: {
+    'simple-import-sort/sort': 'error',
+    'no-inline-styles/no-inline-styles': 'error',
+    'react/destructuring-assignment': 'off',
   },
 };

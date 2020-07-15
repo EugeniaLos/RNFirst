@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-  View,
-  Text,
   FlatList,
+  Text,
+  View,
 } from 'react-native';
+
 import { styles } from './styles';
 
 const items = [
