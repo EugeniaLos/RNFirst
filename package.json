@@ -9,7 +9,14 @@
     "test": "jest",
     "lint": "eslint ."
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "./node_modules/.bin/eslint --ignore-path .gitignore ."
+    }
+  },
   "dependencies": {
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "prop-types": "^15.7.2",
     "react": "16.11.0",
     "react-native": "0.62.2"
   },
@@ -18,7 +25,15 @@
     "@babel/runtime": "^7.6.2",
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.9.0",
-    "eslint": "^6.5.1",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-no-inline-styles": "^1.0.5",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "eslint-plugin-react-native": "^3.8.1",
+    "husky": "^4.2.5",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.58.0",
     "react-test-renderer": "16.11.0"
