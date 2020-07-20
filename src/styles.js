@@ -27,4 +27,11 @@ export const styles = StyleSheet.create({
   imageContainer: {
     alignItems: 'center',
   },
+  container: {
+    backgroundColor: 'crimson',
+  },
+  seperator: {
+    borderBottomColor: 'black',
+    borderBottomWidth: 10,
+  },
 });
