@@ -30,8 +30,10 @@ export const styles = StyleSheet.create({
   container: {
     backgroundColor: 'crimson',
   },
-  seperator: {
+  separator: {
     borderBottomColor: 'black',
-    borderBottomWidth: 10,
+    borderBottomWidth: 3,
+    paddingTop: 10,
+    marginBottom: 10,
   },
 });

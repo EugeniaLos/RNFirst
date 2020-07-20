@@ -1,4 +1,7 @@
 /* eslint-disable import/no-unresolved */
+import 'react-native-gesture-handler';
+
+import { NavigationContainer } from '@react-navigation/native';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {
