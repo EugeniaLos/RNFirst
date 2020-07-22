@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import 'react-native-gesture-handler';
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -6,35 +5,16 @@ import { createStackNavigator } from '@react-navigation/stack';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {
-  Button,
   FlatList,
-  Image,
   SafeAreaView,
-  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
 
-import { AppearAnim } from './src/AppearAnim';
 import { CatCard } from './src/CatCard/CatCard';
+import { catItems } from './src/data/catItems';
 import { DetailedCatCard } from './src/DetailedCatCard/DetailedCatCard';
 import { styles } from './src/styles';
-import { TodoItems } from './src/TodoItems';
-
-const items = [
-  {
-    id: 1,
-    name: 'Snowball',
-    breed: 'Angora',
-    description: 'very informative text',
-  },
-  {
-    id: 2,
-    name: 'Prince',
-    breed: 'Persian',
-    description: 'very informative text',
-  },
-];
 
 const renderCatItem = ({ item }, navigation) => (
   <TouchableOpacity onPress={() => (navigation.navigate('Details', { catId: item.id }))}>
@@ -50,7 +30,7 @@ function HomeScreen({ navigation }) {
     <SafeAreaView>
       <FlatList
         style={styles.container}
-        data={items}
+        data={catItems}
         renderItem={(item) => renderCatItem(item, navigation)}
         ItemSeparatorComponent={renderSeparator}
       />
