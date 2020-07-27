@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import { CatCard } from '../CatCard/CatCard';
-import { catItems } from '../data/catItems';
+import { cats } from '../data/cats';
 import { styles } from '../styles';
 
 const renderSeparator = () => (<View style={styles.separator} />);
@@ -25,7 +25,7 @@ export const HomeScreen = ({ navigation }) => (
   <SafeAreaView>
     <FlatList
       style={styles.container}
-      data={catItems}
+      data={cats}
       renderItem={(item) => renderCatItem(item, navigation)}
       ItemSeparatorComponent={renderSeparator}
     />
@@ -34,4 +34,7 @@ export const HomeScreen = ({ navigation }) => (
 
 renderCatItem.propTypes = {
   item: PropTypes.objectOf(PropTypes.string).isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
 };

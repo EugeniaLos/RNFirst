@@ -15,7 +15,7 @@ export const CatCard = ({ cat }) => (
       <Text style={styles.breed}>{cat.breed}</Text>
     </View>
     <View style={styles.divider} />
-    <Image source={require('../catImg/angora.png')} style={styles.img} />
+    <Image source={{ uri: cat.url }} style={styles.img} />
     <Text style={styles.description}>{cat.description}</Text>
   </View>
 );

@@ -14,6 +14,8 @@ export const styles = StyleSheet.create({
   },
   img: {
     alignSelf: 'center',
+    width: 320,
+    height: 236,
   },
   name: {
     fontWeight: '600',
