@@ -21,5 +21,10 @@ export const CatCard = ({ cat }) => (
 );
 
 CatCard.propTypes = {
-  cat: PropTypes.objectOf(PropTypes.string).isRequired,
+  cat: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    breed: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }).isRequired,
 };

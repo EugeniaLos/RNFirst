@@ -13,27 +13,37 @@ import { CatCard } from '../CatCard/CatCard';
 import { cats } from '../data/cats';
 import { styles } from '../styles';
 
-const renderSeparator = () => (<View style={styles.separator} />);
+export const HomeScreen = ({ navigation }) => {
+  const openDetailedCatCard = (item) => (navigation.navigate('Details', { catId: item.id }));
 
-const renderCatItem = ({ item }, navigation) => (
-  <TouchableOpacity onPress={() => (navigation.navigate('Details', { catId: item.id }))}>
-    <CatCard cat={item} />
-  </TouchableOpacity>
-);
+  const renderCatItem = ({ item }) => (
+    <TouchableOpacity onPress={() => openDetailedCatCard(item)}>
+      <CatCard cat={item} />
+    </TouchableOpacity>
+  );
 
-export const HomeScreen = ({ navigation }) => (
-  <SafeAreaView>
-    <FlatList
-      style={styles.container}
-      data={cats}
-      renderItem={(item) => renderCatItem(item, navigation)}
-      ItemSeparatorComponent={renderSeparator}
-    />
-  </SafeAreaView>
-);
+  renderCatItem.propTypes = {
+    item: PropTypes.objectOf(PropTypes.string).isRequired,
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired,
+    }).isRequired,
+  };
 
-renderCatItem.propTypes = {
-  item: PropTypes.objectOf(PropTypes.string).isRequired,
+  const renderSeparator = () => (<View style={styles.separator} />);
+
+  return (
+    <SafeAreaView>
+      <FlatList
+        style={styles.container}
+        data={cats}
+        renderItem={renderCatItem}
+        ItemSeparatorComponent={renderSeparator}
+      />
+    </SafeAreaView>
+  );
+};
+
+HomeScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,

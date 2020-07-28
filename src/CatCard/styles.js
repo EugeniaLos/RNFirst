@@ -1,8 +1,10 @@
 import { StyleSheet } from 'react-native';
 
+import { GREY } from '../colors';
+
 export const styles = StyleSheet.create({
   catCard: {
-    borderColor: 'grey',
+    borderColor: GREY,
     borderWidth: 3,
     borderRadius: 10,
   },
@@ -33,8 +35,7 @@ export const styles = StyleSheet.create({
   divider: {
     borderBottomColor: 'grey',
     borderBottomWidth: 1,
-    marginLeft: 30,
-    marginRight: 30,
+    marginHorizontal: 30,
     marginBottom: 15,
   },
 });

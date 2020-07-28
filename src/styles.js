@@ -1,6 +1,8 @@
 import { StyleSheet } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
+import { BLACK, CRIMSON } from './colors';
+
 // eslint-disable-next-line import/prefer-default-export
 export const styles = StyleSheet.create({
   body: {
@@ -28,10 +30,10 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   container: {
-    backgroundColor: 'crimson',
+    backgroundColor: CRIMSON,
   },
   separator: {
-    borderBottomColor: 'black',
+    borderBottomColor: BLACK,
     borderBottomWidth: 3,
     paddingTop: 10,
     marginBottom: 10,
