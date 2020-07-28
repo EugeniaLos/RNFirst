@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Image,
   Text,
@@ -10,8 +10,11 @@ import { cats } from '../data/cats';
 import { styles } from './styles';
 
 export const DetailedCatCard = ({ id }) => {
+  const [cat, setCat] = useState({});
   const findCat = () => cats.find((item) => item.id === id);
-  const cat = findCat();
+  useEffect(() => {
+    setCat(findCat());
+  }, []);
   return (
     <View style={styles.detailedCard}>
       <View style={styles.headInfo}>
