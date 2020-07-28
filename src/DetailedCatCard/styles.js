@@ -1,16 +1,17 @@
 import { StyleSheet } from 'react-native';
 
+import { CRIMSON, GREY } from '../colors';
+
 export const styles = StyleSheet.create({
   detailedCard: {
-    backgroundColor: 'crimson',
+    backgroundColor: CRIMSON,
   },
   headInfo: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 5,
     marginBottom: 15,
-    marginLeft: 5,
-    marginRight: 5,
+    marginHorizontal: 5,
   },
   img: {
     alignSelf: 'center',
@@ -29,10 +30,9 @@ export const styles = StyleSheet.create({
     paddingTop: 15,
   },
   divider: {
-    borderBottomColor: 'grey',
+    borderBottomColor: GREY,
     borderBottomWidth: 1,
-    marginLeft: 30,
-    marginRight: 30,
+    marginHorizontal: 30,
     marginBottom: 15,
   },
 });

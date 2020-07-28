@@ -3,7 +3,6 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 import { BLACK, CRIMSON } from './colors';
 
-// eslint-disable-next-line import/prefer-default-export
 export const styles = StyleSheet.create({
   body: {
     backgroundColor: Colors.white,
