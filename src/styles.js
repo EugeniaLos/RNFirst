@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
-import { BLACK, CRIMSON } from './colors';
+import { BLACK, CRIMSON, GREY } from './colors';
 
 export const styles = StyleSheet.create({
   body: {
@@ -36,5 +36,19 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 3,
     paddingTop: 10,
     marginBottom: 10,
+  },
+  textInput: {
+    flex: 1,
+  },
+  header: {
+    borderColor: GREY,
+    borderWidth: 2,
+    borderRadius: 10,
+    marginVertical: 5,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  searchButton: {
+    fontSize: 10000,
   },
 });
