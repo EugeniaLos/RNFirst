@@ -48,7 +48,4 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  searchButton: {
-    fontSize: 10000,
-  },
 });

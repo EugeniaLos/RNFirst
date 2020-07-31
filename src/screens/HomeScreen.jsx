@@ -6,6 +6,7 @@ import {
   Button,
   FlatList,
   SafeAreaView,
+  Text,
   TextInput,
   TouchableOpacity,
   View,
@@ -64,6 +65,10 @@ export const HomeScreen = ({ navigation }) => {
     </View>
   );
 
+  const renderListEmptyComponent = () => (
+    <Text>Упс, нет котиков, которые удовлетворяют вашему поисковому запросу</Text>
+  );
+
   return (
     <SafeAreaView>
       <FlatList
@@ -72,6 +77,7 @@ export const HomeScreen = ({ navigation }) => {
         renderItem={renderCatItem}
         ItemSeparatorComponent={renderSeparator}
         ListHeaderComponent={renderFlatListHeader}
+        ListEmptyComponent={renderListEmptyComponent}
       />
     </SafeAreaView>
   );
