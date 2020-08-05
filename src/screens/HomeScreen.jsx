@@ -1,8 +1,9 @@
 import 'react-native-gesture-handler';
 
 import PropTypes from 'prop-types';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
+  ActivityIndicator,
   Button,
   FlatList,
   SafeAreaView,
@@ -19,10 +20,31 @@ import { styles } from '../styles';
 const renderSeparator = () => (<View style={styles.separator} />);
 
 export const HomeScreen = ({ navigation }) => {
-  const [visibleCats, setVisibleCats] = useState(cats);
+  const [visibleCats, setVisibleCats] = useState([]);
   const [searchValue, setSearchValue] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [err, setErr] = useState('');
 
-  const openDetailedCatCard = useCallback((item) => (navigation.navigate('Details', { catId: item.id })), []);
+  const getCats = () => {
+    setLoading(true);
+    try {
+      const randomDigit = Math.floor(Math.random() * 10);
+      if (randomDigit === 0 || randomDigit === 1) {
+        throw 'Error';
+      }
+      setVisibleCats(cats);
+    } catch (error) {
+      setErr(error);
+    }
+    const endLoading = () => (setLoading(false));
+    setTimeout(endLoading, 1000);
+  };
+
+  useEffect(() => getCats(), []);
+
+  const openDetailedCatCard = useCallback((item) => {
+    navigation.navigate('Details', { catId: item.id });
+  }, []);
 
   const renderCatItem = ({ item }) => (
     <TouchableOpacity onPress={() => openDetailedCatCard(item)}>
@@ -37,19 +59,20 @@ export const HomeScreen = ({ navigation }) => {
     }).isRequired,
   };
 
-  const changeCats = () => {
+  const changeCats = useCallback(() => {
     if (searchValue === '') {
       setVisibleCats(cats);
     } else {
       setVisibleCats(cats.filter((cat) => cat.name === searchValue));
     }
-  };
-  const onChangeText = (text) => {
+  }, []);
+
+  const onChangeText = useCallback((text) => {
     setSearchValue(text);
     if (text === '') {
       setVisibleCats(cats);
     }
-  };
+  }, []);
 
   const renderFlatListHeader = () => (
     <View style={styles.header}>
@@ -71,14 +94,17 @@ export const HomeScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView>
-      <FlatList
-        style={styles.container}
-        data={visibleCats}
-        renderItem={renderCatItem}
-        ItemSeparatorComponent={renderSeparator}
-        ListHeaderComponent={renderFlatListHeader}
-        ListEmptyComponent={renderListEmptyComponent}
-      />
+      {err == false && <Text>Error have occured</Text>}
+      {loading ? <ActivityIndicator /> : (
+        <FlatList
+          style={styles.container}
+          data={visibleCats}
+          renderItem={renderCatItem}
+          ItemSeparatorComponent={renderSeparator}
+          ListHeaderComponent={renderFlatListHeader}
+          ListEmptyComponent={renderListEmptyComponent}
+        />
+      )}
     </SafeAreaView>
   );
 };
