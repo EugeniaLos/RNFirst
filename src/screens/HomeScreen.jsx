@@ -12,15 +12,18 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { filterCats, showAllCats } from '../actions/catActions';
 import { CatCard } from '../CatCard/CatCard';
-import { cats } from '../data/cats';
 import { styles } from '../styles';
 
 const renderSeparator = () => (<View style={styles.separator} />);
 
 export const HomeScreen = ({ navigation }) => {
-  const [visibleCats, setVisibleCats] = useState([]);
+  const visibleCats = useSelector((state) => state.cats.visible);
+  const dispatch = useDispatch();
+
   const [searchValue, setSearchValue] = useState('');
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState('');
@@ -32,7 +35,6 @@ export const HomeScreen = ({ navigation }) => {
       if (randomDigit === 0 || randomDigit === 1) {
         throw 'Error';
       }
-      setVisibleCats(cats);
     } catch (error) {
       setErr(error);
     }
@@ -41,6 +43,10 @@ export const HomeScreen = ({ navigation }) => {
   };
 
   useEffect(() => getCats(), []);
+
+  const openNewCatScreen = useCallback(() => {
+    navigation.navigate('NewCat');
+  }, []);
 
   const openDetailedCatCard = useCallback((item) => {
     navigation.navigate('Details', { catId: item.id });
@@ -59,20 +65,20 @@ export const HomeScreen = ({ navigation }) => {
     }).isRequired,
   };
 
-  const changeCats = useCallback(() => {
+  const changeCats = () => {
     if (searchValue === '') {
-      setVisibleCats(cats);
+      dispatch(showAllCats());
     } else {
-      setVisibleCats(cats.filter((cat) => cat.name === searchValue));
+      dispatch(filterCats(searchValue));
     }
-  }, []);
+  };
 
-  const onChangeText = useCallback((text) => {
+  const onChangeText = (text) => {
     setSearchValue(text);
     if (text === '') {
-      setVisibleCats(cats);
+      dispatch(showAllCats());
     }
-  }, []);
+  };
 
   const renderFlatListHeader = () => (
     <View style={styles.header}>
@@ -95,6 +101,10 @@ export const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView>
       {err == false && <Text>Error have occured</Text>}
+      <Button
+        title="Новый котик"
+        onPress={() => openNewCatScreen()}
+      />
       {loading ? <ActivityIndicator /> : (
         <FlatList
           style={styles.container}

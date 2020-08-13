@@ -48,4 +48,20 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  input: {
+    borderColor: GREY,
+    borderWidth: 2,
+    borderRadius: 10,
+    marginVertical: 5,
+    flex: 1,
+    marginRight: 30,
+  },
+  inputUnit: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  label: {
+    marginVertical: 6,
+    marginRight: 5,
+  },
 });
