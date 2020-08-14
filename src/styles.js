@@ -1,7 +1,8 @@
 import { StyleSheet } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
-// eslint-disable-next-line import/prefer-default-export
+import { BLACK, CRIMSON, GREY } from './colors';
+
 export const styles = StyleSheet.create({
   body: {
     backgroundColor: Colors.white,
@@ -26,5 +27,41 @@ export const styles = StyleSheet.create({
   },
   imageContainer: {
     alignItems: 'center',
+  },
+  container: {
+    backgroundColor: CRIMSON,
+  },
+  separator: {
+    borderBottomColor: BLACK,
+    borderBottomWidth: 3,
+    paddingTop: 10,
+    marginBottom: 10,
+  },
+  textInput: {
+    flex: 1,
+  },
+  header: {
+    borderColor: GREY,
+    borderWidth: 2,
+    borderRadius: 10,
+    marginVertical: 5,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  input: {
+    borderColor: GREY,
+    borderWidth: 2,
+    borderRadius: 10,
+    marginVertical: 5,
+    flex: 1,
+    marginRight: 30,
+  },
+  inputUnit: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  label: {
+    marginVertical: 6,
+    marginRight: 5,
   },
 });

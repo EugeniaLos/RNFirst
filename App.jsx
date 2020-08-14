@@ -1,26 +1,27 @@
-/* eslint-disable import/no-unresolved */
-import React from 'react';
-import {
-  Image,
-  SafeAreaView,
-  Text,
-  View,
-} from 'react-native';
+import 'react-native-gesture-handler';
 
-import { AppearAnim } from './src/AppearAnim';
-import { styles } from './src/styles';
-import { TodoItems } from './src/TodoItems';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+import catReducer from './src/reducers/catReducer';
+import { DetailsScreen } from './src/screens/DetailsScreen';
+import { HomeScreen } from './src/screens/HomeScreen';
+import { NewCatScreen } from './src/screens/NewCatScreen';
+
+const store = createStore(catReducer);
+const Stack = createStackNavigator();
 
 export const App = () => (
-  <SafeAreaView>
-    <View style={styles.body}>
-      <View style={styles.sectionContainer}>
-        <Text style={styles.sectionTitle}>Заголовок</Text>
-        <AppearAnim style={styles.imageContainer}>
-          <Image source={require('./image.png')} />
-        </AppearAnim>
-      </View>
-      <TodoItems />
-    </View>
-  </SafeAreaView>
+  <Provider store={store}>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="NewCat" component={NewCatScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  </Provider>
 );

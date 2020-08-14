@@ -1,0 +1,3 @@
+export const CHANGE_VISIBLE_CATS = 'CHANGE_VISIBLE_CATS';
+export const SHOW_ALL_CATS = 'SHOW_ALL_CATS';
+export const ADD_NEW_CAT = 'ADD_NEW_CAT';
